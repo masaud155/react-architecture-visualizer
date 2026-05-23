@@ -24,7 +24,7 @@ export function RenderFlowCanvas() {
   const flowEdges = useMemo(() => toReactFlowEdges(edges), [edges]);
 
   return (
-    <div className="hairline h-[560px] overflow-hidden rounded-lg border border-white/10 bg-slate-950/70 code-grid shadow-[0_22px_70px_rgb(0_0_0/.24)]">
+    <div className="hairline h-[380px] overflow-hidden rounded-lg border border-white/10 bg-slate-950/70 code-grid shadow-[0_22px_70px_rgb(0_0_0/.18)] sm:h-[460px] xl:h-[560px]">
       <ReactFlow
         nodes={flowNodes}
         edges={flowEdges}

@@ -1,7 +1,7 @@
 import { cn } from './utils.js';
 
 export function Card({ className, ...props }) {
-  return <section className={cn('panel p-5 md:p-6', className)} {...props} />;
+  return <section className={cn('panel p-4 sm:p-5 md:p-6', className)} {...props} />;
 }
 
 export function CardHeader({ className, ...props }) {

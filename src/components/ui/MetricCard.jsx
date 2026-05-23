@@ -9,7 +9,7 @@ export function MetricCard({ label, value, detail, tone = 'primary' }) {
   };
 
   return (
-    <div className="hairline rounded-lg border border-white/10 bg-gradient-to-b from-white/[0.065] to-white/[0.025] p-4 transition hover:border-white/15">
+    <div className="hairline rounded-lg border border-white/10 bg-white/[0.035] p-4 transition hover:border-white/15">
       <div className={cn('mb-4 h-1 rounded-full bg-gradient-to-r', tones[tone])} />
       <p className="text-[11px] font-medium uppercase tracking-[0.13em] text-muted-foreground">{label}</p>
       <p className="mt-2 text-2xl font-semibold tabular-nums text-foreground">{value}</p>

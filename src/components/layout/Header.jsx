@@ -16,15 +16,15 @@ export function Header() {
   const currentPage = navItems.find((item) => item.to === location.pathname) ?? navItems[0];
 
   return (
-    <header className="sticky top-0 z-20 border-b border-white/10 bg-[#080d18]/90 px-4 py-3 backdrop-blur-xl lg:px-6">
-      <div className="flex flex-col gap-3 2xl:flex-row 2xl:items-center 2xl:justify-between">
+    <header className="sticky top-0 z-20 border-b border-white/10 bg-[#080d18]/95 px-3 py-3 backdrop-blur-xl sm:px-4 lg:px-6">
+      <div className="flex flex-col gap-3 xl:flex-row xl:items-center xl:justify-between">
         <div className="min-w-0">
           <p className="flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.22em] text-primary">
             <Sparkles className="h-3.5 w-3.5" />
             React architecture simulator
           </p>
           <div className="mt-1 flex flex-wrap items-center gap-3">
-            <h2 className="truncate text-xl font-semibold text-slate-100">React RenderFlow Simulator</h2>
+            <h2 className="truncate text-lg font-semibold text-slate-100 sm:text-xl">React RenderFlow Simulator</h2>
             <span className="hidden rounded-md border border-white/10 bg-white/[0.045] px-2 py-1 text-[11px] text-muted-foreground md:inline-flex">
               {currentPage.label}
             </span>
@@ -33,22 +33,23 @@ export function Header() {
             </span>
           </div>
         </div>
-        <div className="flex flex-wrap items-center gap-2 rounded-lg border border-white/10 bg-black/20 p-1.5">
-          <div className="flex flex-wrap gap-2">
-            <ModeToggle />
+        <div className="grid w-full gap-2 rounded-lg border border-white/10 bg-black/20 p-1.5 xl:w-auto xl:grid-flow-col xl:items-center">
+          <div className="grid gap-2 md:grid-cols-[auto_minmax(0,1fr)] xl:flex">
+            <ModeToggle className="w-full" />
             <SegmentedControl
+              className="w-full"
               options={['Beginner', 'Intermediate', 'Senior Engineer']}
               value={developerMode}
               onChange={setDeveloperMode}
             />
           </div>
-          <div className="hidden h-7 w-px bg-white/10 md:block" />
-          <div className="flex gap-2">
-            <Button variant="secondary" onClick={resetSimulation}>
+          <div className="hidden h-7 w-px bg-white/10 xl:block" />
+          <div className="grid grid-cols-2 gap-2 sm:flex">
+            <Button variant="secondary" className="w-full sm:w-auto" onClick={resetSimulation}>
               <RotateCcw className="h-4 w-4" />
               Reset
             </Button>
-            <Button variant="secondary" asChild>
+            <Button variant="secondary" className="w-full sm:w-auto" asChild>
               <Link to="/guide">
                 <BookOpen className="h-4 w-4" />
                 Guide

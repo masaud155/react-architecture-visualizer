@@ -1,7 +1,7 @@
 import { SegmentedControl } from '../ui/Tabs.jsx';
 import { useSimulatorStore } from '../../store/simulatorStore.js';
 
-export function ModeToggle() {
+export function ModeToggle({ className }) {
   const architectureMode = useSimulatorStore((state) => state.architectureMode);
   const setArchitectureMode = useSimulatorStore((state) => state.setArchitectureMode);
 
@@ -10,6 +10,7 @@ export function ModeToggle() {
       options={['Bad Architecture', 'Good Architecture']}
       value={architectureMode === 'bad' ? 'Bad Architecture' : 'Good Architecture'}
       onChange={(value) => setArchitectureMode(value === 'Bad Architecture' ? 'bad' : 'good')}
+      className={className}
     />
   );
 }

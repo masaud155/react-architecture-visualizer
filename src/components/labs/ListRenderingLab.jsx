@@ -34,32 +34,34 @@ export function ListRenderingLab() {
           <MetricCard label="Wasted rows" value={bad ? rows.length - 1 : 0} tone={bad ? 'danger' : 'success'} />
           <MetricCard label="Total rows" value={rows.length} />
         </div>
-        <div className="mt-6 overflow-hidden rounded-lg border border-white/10 bg-slate-950/50">
-          <div className="grid grid-cols-[1fr_130px_100px] border-b border-white/10 bg-white/[0.035] px-4 py-3 text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground">
-            <span>User</span>
-            <span>Status</span>
-            <span className="text-right">Render</span>
+        <div className="mt-6 overflow-x-auto rounded-lg border border-white/10 bg-slate-950/50">
+          <div className="min-w-[520px]">
+            <div className="grid grid-cols-[1fr_130px_100px] border-b border-white/10 bg-white/[0.035] px-4 py-3 text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground">
+              <span>User</span>
+              <span>Status</span>
+              <span className="text-right">Render</span>
+            </div>
+            {rows.map((row, index) => {
+              const active = index === selected;
+              const updated = bad || active || index === Math.max(0, selected - 1);
+              return (
+                <div
+                  key={row}
+                  className={cn(
+                    'grid grid-cols-[1fr_130px_100px] items-center border-b border-white/[0.08] px-4 py-3 text-sm last:border-b-0',
+                    updated ? 'bg-primary/[0.075]' : 'bg-white/[0.02]',
+                    active && 'text-primary',
+                  )}
+                >
+                  <span className="font-medium">{row}</span>
+                  <span className="text-xs text-muted-foreground">{active ? 'selected' : 'idle'}</span>
+                  <span className={cn('justify-self-end rounded-md px-2 py-1 font-mono text-[11px]', updated ? 'bg-primary/15 text-primary' : 'bg-white/[0.055] text-muted-foreground')}>
+                    {updated ? 'rendered' : 'stable'}
+                  </span>
+                </div>
+              );
+            })}
           </div>
-          {rows.map((row, index) => {
-            const active = index === selected;
-            const updated = bad || active || index === Math.max(0, selected - 1);
-            return (
-              <div
-                key={row}
-                className={cn(
-                  'grid grid-cols-[1fr_130px_100px] items-center border-b border-white/[0.08] px-4 py-3 text-sm last:border-b-0',
-                  updated ? 'bg-primary/[0.075]' : 'bg-white/[0.02]',
-                  active && 'text-primary',
-                )}
-              >
-                <span className="font-medium">{row}</span>
-                <span className="text-xs text-muted-foreground">{active ? 'selected' : 'idle'}</span>
-                <span className={cn('justify-self-end rounded-md px-2 py-1 font-mono text-[11px]', updated ? 'bg-primary/15 text-primary' : 'bg-white/[0.055] text-muted-foreground')}>
-                  {updated ? 'rendered' : 'stable'}
-                </span>
-              </div>
-            );
-          })}
         </div>
       </Card>
       <aside className="space-y-4">

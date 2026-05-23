@@ -7,8 +7,8 @@ export function InteractionControls() {
   const { selectedInteraction, setSelectedInteraction, triggerInteraction } = useRenderSimulation();
 
   return (
-    <div className="flex flex-col gap-3 rounded-lg border border-white/10 bg-black/25 p-2 shadow-[inset_0_1px_0_rgb(255_255_255/.05)] md:flex-row md:items-center">
-      <label className="relative min-w-72 flex-1">
+    <div className="flex w-full flex-col gap-3 rounded-lg border border-white/10 bg-black/25 p-2 shadow-[inset_0_1px_0_rgb(255_255_255/.05)] md:flex-row md:items-center">
+      <label className="relative min-w-0 flex-1">
         <span className="sr-only">Interaction</span>
         <select
           value={selectedInteraction}
@@ -23,7 +23,7 @@ export function InteractionControls() {
         </select>
         <ChevronDown className="pointer-events-none absolute right-3 top-3 h-4 w-4 text-muted-foreground" />
       </label>
-      <Button onClick={triggerInteraction}>
+      <Button className="w-full md:w-auto" onClick={triggerInteraction}>
         <Play className="h-4 w-4" />
         Trigger Interaction
       </Button>

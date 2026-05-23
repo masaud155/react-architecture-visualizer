@@ -4,11 +4,11 @@ import { Sidebar } from './Sidebar.jsx';
 
 export function AppLayout() {
   return (
-    <div className="min-h-screen overflow-hidden lg:flex">
+    <div className="min-h-screen lg:flex">
       <Sidebar />
       <div className="min-w-0 flex-1">
         <Header />
-        <main className="h-[calc(100vh-73px)] overflow-auto p-4 lg:p-6">
+        <main className="min-h-[calc(100vh-120px)] p-3 sm:p-4 lg:p-6">
           <Outlet />
         </main>
       </div>
