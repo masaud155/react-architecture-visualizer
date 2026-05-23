@@ -20,16 +20,20 @@ function createInitialState(architectureMode = 'bad') {
     score: scenario.score,
     explanation: scenario.summary,
     lastInteraction: null,
+    resetNonce: 0,
+    listSelectedIndex: 1,
   };
 }
 
 export const useSimulatorStore = create((set, get) => ({
   ...createInitialState('bad'),
   setArchitectureMode: (architectureMode) => {
-    set(createInitialState(architectureMode));
+    const currentNonce = get().resetNonce;
+    set({ ...createInitialState(architectureMode), resetNonce: currentNonce + 1 });
   },
   setDeveloperMode: (developerMode) => set({ developerMode }),
   setSelectedInteraction: (selectedInteraction) => set({ selectedInteraction }),
+  setListSelectedIndex: (listSelectedIndex) => set({ listSelectedIndex }),
   selectNode: (selectedNodeId) => set({ selectedNodeId }),
   triggerInteraction: () => {
     const state = get();
@@ -43,6 +47,7 @@ export const useSimulatorStore = create((set, get) => ({
   },
   resetSimulation: () => {
     const { architectureMode } = get();
-    set(createInitialState(architectureMode));
+    const currentNonce = get().resetNonce;
+    set({ ...createInitialState(architectureMode), resetNonce: currentNonce + 1 });
   },
 }));

@@ -1,4 +1,5 @@
-import { Code2, RotateCcw, Sparkles } from 'lucide-react';
+import { BookOpen, RotateCcw, Sparkles } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Button } from '../ui/Button.jsx';
 import { SegmentedControl } from '../ui/Tabs.jsx';
 import { ModeToggle } from '../simulator/ModeToggle.jsx';
@@ -30,8 +31,11 @@ export function Header() {
             <RotateCcw className="h-4 w-4" />
             Reset
           </Button>
-          <Button variant="ghost" aria-label="GitHub">
-            <Code2 className="h-4 w-4" />
+          <Button variant="secondary" asChild>
+            <Link to="/guide">
+              <BookOpen className="h-4 w-4" />
+              Guide
+            </Link>
           </Button>
         </div>
       </div>

@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Card, CardTitle } from '../ui/Card.jsx';
 import { CodeBlock } from '../ui/CodeBlock.jsx';
 import { MetricCard } from '../ui/MetricCard.jsx';
@@ -11,7 +10,8 @@ const rows = ['Ada Lovelace', 'Grace Hopper', 'Katherine Johnson', 'Margaret Ham
 
 export function ListRenderingLab() {
   const architectureMode = useSimulatorStore((state) => state.architectureMode);
-  const [selected, setSelected] = useState(1);
+  const selected = useSimulatorStore((state) => state.listSelectedIndex);
+  const setSelected = useSimulatorStore((state) => state.setListSelectedIndex);
   const bad = architectureMode === 'bad';
   const renderedRows = bad ? rows.length : 2;
 
@@ -23,7 +23,7 @@ export function ListRenderingLab() {
             <CardTitle>List Rendering Lab</CardTitle>
             <p className="mt-2 text-sm text-muted-foreground">Selecting one row should not force every row to render.</p>
           </div>
-          <Button variant="secondary" onClick={() => setSelected((value) => (value + 1) % rows.length)}>Select next row</Button>
+          <Button variant="secondary" onClick={() => setSelected((selected + 1) % rows.length)}>Select next row</Button>
         </div>
         <div className="mt-5 grid gap-3 md:grid-cols-3">
           <MetricCard label="Rows rendered" value={renderedRows} tone={bad ? 'danger' : 'success'} />

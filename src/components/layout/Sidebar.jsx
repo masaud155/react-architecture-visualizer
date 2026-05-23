@@ -3,6 +3,7 @@ import {
   Activity,
   BarChart3,
   Binary,
+  BookOpen,
   Boxes,
   CheckSquare,
   Gauge,
@@ -28,6 +29,7 @@ const navItems = [
   { to: '/performance-timeline', label: 'Performance Timeline', icon: Activity },
   { to: '/architecture-score', label: 'Architecture Score', icon: LineChart },
   { to: '/final-checklist', label: 'Final Checklist', icon: CheckSquare },
+  { to: '/guide', label: 'How to Use', icon: BookOpen },
 ];
 
 export function Sidebar() {

@@ -7,7 +7,7 @@ export function CodeBlock({ label, code }) {
         <Badge tone={label === 'Good JSX' ? 'success' : 'danger'}>{label}</Badge>
         <span className="font-mono text-[11px] text-muted-foreground">jsx</span>
       </div>
-      <pre className="max-h-72 overflow-auto p-4 text-xs leading-6 text-slate-200">
+      <pre className="max-h-72 overflow-auto whitespace-pre-wrap break-words p-4 text-xs leading-6 text-slate-200">
         <code>{code}</code>
       </pre>
     </div>

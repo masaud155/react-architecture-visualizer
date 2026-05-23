@@ -29,7 +29,7 @@ export function Button({ className, variant = 'primary', size = 'md', asChild = 
   }
 
   return (
-    <button className={buttonClassName} {...props}>
+    <button type="button" className={buttonClassName} {...props}>
       {children}
     </button>
   );

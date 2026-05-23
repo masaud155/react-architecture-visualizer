@@ -12,6 +12,7 @@ import { DashboardDemoPage } from '../pages/DashboardDemoPage.jsx';
 import { PerformanceTimeline } from '../pages/PerformanceTimeline.jsx';
 import { ArchitectureScorePage } from '../pages/ArchitectureScorePage.jsx';
 import { FinalChecklist } from '../pages/FinalChecklist.jsx';
+import { Guide } from '../pages/Guide.jsx';
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +31,7 @@ export const router = createBrowserRouter([
       { path: 'performance-timeline', element: <PerformanceTimeline /> },
       { path: 'architecture-score', element: <ArchitectureScorePage /> },
       { path: 'final-checklist', element: <FinalChecklist /> },
+      { path: 'guide', element: <Guide /> },
     ],
   },
 ]);

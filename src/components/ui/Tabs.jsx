@@ -5,6 +5,7 @@ export function SegmentedControl({ options, value, onChange, className }) {
     <div className={cn('inline-flex rounded-lg border border-white/10 bg-black/20 p-1', className)}>
       {options.map((option) => (
         <button
+          type="button"
           key={option}
           onClick={() => onChange(option)}
           className={cn(
