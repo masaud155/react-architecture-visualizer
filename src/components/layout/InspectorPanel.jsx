@@ -29,7 +29,7 @@ export function InspectorPanel() {
   if (!node) return null;
 
   return (
-    <Card className="h-full">
+    <Card className="h-full overflow-hidden">
       <div className="mb-4 flex items-start justify-between gap-3">
         <div>
           <CardTitle>Why Did This Render?</CardTitle>
@@ -41,22 +41,22 @@ export function InspectorPanel() {
       </div>
 
       <div className="space-y-3 text-sm">
-        <p className="rounded-lg border border-white/10 bg-black/[0.22] p-4 leading-6 text-slate-200">{getModeText(developerMode, node, reason)}</p>
+        <p className="rounded-lg border border-white/10 bg-gradient-to-br from-white/[0.065] to-white/[0.025] p-4 leading-6 text-slate-200">{getModeText(developerMode, node, reason)}</p>
         <dl className="grid grid-cols-2 gap-3">
-          <div className="rounded-lg bg-white/[0.045] p-3">
-            <dt className="text-xs text-muted-foreground">Render count</dt>
-            <dd className="mt-1 text-lg font-semibold">{node.renderCount}</dd>
+          <div className="rounded-lg border border-white/10 bg-white/[0.035] p-3">
+            <dt className="text-[11px] uppercase tracking-[0.12em] text-muted-foreground">Render count</dt>
+            <dd className="mt-1 text-lg font-semibold tabular-nums">{node.renderCount}</dd>
           </div>
-          <div className="rounded-lg bg-white/[0.045] p-3">
-            <dt className="text-xs text-muted-foreground">State owner</dt>
+          <div className="rounded-lg border border-white/10 bg-white/[0.035] p-3">
+            <dt className="text-[11px] uppercase tracking-[0.12em] text-muted-foreground">State owner</dt>
             <dd className="mt-1 text-lg font-semibold">{node.ownsState ? 'Yes' : 'No'}</dd>
           </div>
-          <div className="rounded-lg bg-white/[0.045] p-3">
-            <dt className="text-xs text-muted-foreground">Memoized</dt>
+          <div className="rounded-lg border border-white/10 bg-white/[0.035] p-3">
+            <dt className="text-[11px] uppercase tracking-[0.12em] text-muted-foreground">Memoized</dt>
             <dd className="mt-1 text-lg font-semibold">{node.memoized ? 'Yes' : 'No'}</dd>
           </div>
-          <div className="rounded-lg bg-white/[0.045] p-3">
-            <dt className="text-xs text-muted-foreground">Parent caused</dt>
+          <div className="rounded-lg border border-white/10 bg-white/[0.035] p-3">
+            <dt className="text-[11px] uppercase tracking-[0.12em] text-muted-foreground">Parent caused</dt>
             <dd className="mt-1 text-lg font-semibold">{reason?.parentCaused ? 'Yes' : 'No'}</dd>
           </div>
         </dl>

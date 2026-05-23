@@ -1,7 +1,7 @@
 import { cn } from './utils.js';
 
 export function Card({ className, ...props }) {
-  return <section className={cn('panel p-5', className)} {...props} />;
+  return <section className={cn('panel p-5 md:p-6', className)} {...props} />;
 }
 
 export function CardHeader({ className, ...props }) {
@@ -9,5 +9,5 @@ export function CardHeader({ className, ...props }) {
 }
 
 export function CardTitle({ className, ...props }) {
-  return <h2 className={cn('text-base font-semibold tracking-normal text-foreground', className)} {...props} />;
+  return <h2 className={cn('text-[15px] font-semibold tracking-normal text-foreground md:text-base', className)} {...props} />;
 }

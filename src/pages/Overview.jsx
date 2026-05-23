@@ -4,6 +4,7 @@ import { Button } from '../components/ui/Button.jsx';
 import { Card, CardTitle } from '../components/ui/Card.jsx';
 import { MetricCard } from '../components/ui/MetricCard.jsx';
 import { RenderFlowCanvas } from '../components/simulator/RenderFlowCanvas.jsx';
+import { Badge } from '../components/ui/Badge.jsx';
 
 const capabilities = [
   { icon: Zap, title: 'Render heatmaps', text: 'See correct, wasted, and idle renders after real interactions.' },
@@ -15,10 +16,10 @@ const capabilities = [
 export function Overview() {
   return (
     <div className="space-y-5">
-      <section className="grid gap-5 xl:grid-cols-[0.9fr_1.1fr]">
-        <div className="flex flex-col justify-center py-6">
-          <p className="text-xs uppercase tracking-[0.18em] text-primary">Open-source React architecture lab</p>
-          <h1 className="mt-4 max-w-3xl text-4xl font-semibold leading-tight text-foreground md:text-5xl">
+      <section className="grid gap-5 xl:grid-cols-[0.88fr_1.12fr]">
+        <div className="panel flex flex-col justify-center p-6 md:p-8">
+          <Badge tone="primary">Open-source React architecture lab</Badge>
+          <h1 className="mt-5 max-w-3xl text-4xl font-semibold leading-tight text-foreground md:text-5xl">
             A visual simulator for React rendering decisions.
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground">
@@ -36,7 +37,16 @@ export function Overview() {
             </Button>
           </div>
         </div>
-        <RenderFlowCanvas />
+        <div className="panel overflow-hidden p-3">
+          <div className="mb-3 flex items-center justify-between px-2">
+            <div>
+              <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Live preview</p>
+              <p className="mt-1 text-sm text-slate-200">Interactive architecture graph</p>
+            </div>
+            <span className="rounded-md border border-primary/25 bg-primary/[0.1] px-2 py-1 text-[11px] text-primary">React Flow</span>
+          </div>
+          <RenderFlowCanvas />
+        </div>
       </section>
 
       <div className="grid gap-3 md:grid-cols-4">

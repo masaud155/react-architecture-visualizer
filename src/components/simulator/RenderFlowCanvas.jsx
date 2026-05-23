@@ -24,7 +24,7 @@ export function RenderFlowCanvas() {
   const flowEdges = useMemo(() => toReactFlowEdges(edges), [edges]);
 
   return (
-    <div className="h-[560px] overflow-hidden rounded-lg border border-white/10 bg-slate-950/70 code-grid">
+    <div className="hairline h-[560px] overflow-hidden rounded-lg border border-white/10 bg-slate-950/70 code-grid shadow-[0_22px_70px_rgb(0_0_0/.24)]">
       <ReactFlow
         nodes={flowNodes}
         edges={flowEdges}
@@ -37,7 +37,12 @@ export function RenderFlowCanvas() {
       >
         <Background color="rgb(255 255 255 / 0.08)" gap={28} />
         <Controls className="!border-white/10 !bg-slate-950/90 !text-foreground" />
-        <MiniMap pannable zoomable nodeColor={(node) => (node.data.renderStatus === 'wasted' ? '#f43f5e' : node.data.renderStatus === 'necessary' ? '#22c55e' : '#475569')} />
+        <MiniMap
+          pannable
+          zoomable
+          maskColor="rgb(2 6 23 / 0.72)"
+          nodeColor={(node) => (node.data.renderStatus === 'wasted' ? '#f43f5e' : node.data.renderStatus === 'necessary' ? '#22c55e' : '#64748b')}
+        />
       </ReactFlow>
     </div>
   );

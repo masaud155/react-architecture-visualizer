@@ -21,13 +21,19 @@ export function ArchitectureScore() {
   const tone = getScoreTone(total);
 
   return (
-    <Card>
+    <Card className="overflow-hidden">
       <div className="flex items-center justify-between gap-3">
         <div>
           <CardTitle>Architecture Score</CardTitle>
           <p className="mt-1 text-sm text-muted-foreground">{architectureMode === 'bad' ? 'Problems are intentionally visible.' : 'Render zones are focused and easier to reason about.'}</p>
         </div>
-        <Badge tone={tone}>{total}/100</Badge>
+        <div className="relative flex h-16 w-16 items-center justify-center rounded-full border border-white/10 bg-black/25">
+          <span className="text-lg font-semibold tabular-nums text-slate-100">{total}</span>
+          <span className="absolute bottom-2 text-[10px] text-muted-foreground">/100</span>
+        </div>
+      </div>
+      <div className="mt-4">
+        <Badge tone={tone}>{architectureMode === 'bad' ? 'needs work' : 'healthy'}</Badge>
       </div>
       <div className="mt-5 space-y-3">
         {Object.entries(scores).map(([key, value]) => (
@@ -37,7 +43,7 @@ export function ArchitectureScore() {
               <span>{value}</span>
             </div>
             <div className="h-2 overflow-hidden rounded-full bg-white/[0.08]">
-              <div className="h-full rounded-full bg-primary" style={{ width: `${value}%` }} />
+              <div className="h-full rounded-full bg-gradient-to-r from-primary to-emerald-300" style={{ width: `${value}%` }} />
             </div>
           </div>
         ))}
