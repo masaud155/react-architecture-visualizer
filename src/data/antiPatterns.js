@@ -1,0 +1,21 @@
+export const antiPatterns = [
+  ['Giant page component', 'One component owns data fetching, filters, layout, modals, and business rules.', 'Small edits invalidate the entire page and make ownership impossible to see.', 'Split by interaction zones and move logic behind focused hooks.'],
+  ['State too high', 'Parent state changes for tiny child interactions.', 'Unrelated siblings render because they share an owner.', 'Place state in the smallest component that needs to coordinate it.'],
+  ['Props drilling through unused components', 'Intermediate components forward values they never read.', 'Components become coupled to distant UI details.', 'Move data closer or create a narrow provider around the actual consumer.'],
+  ['One massive global context', 'Theme, user, filters, notifications, and modal state share one value.', 'Any change invalidates every consumer.', 'Split contexts by update frequency and responsibility.'],
+  ['Large shared state object', 'Updating one field replaces a large object.', 'Shallow comparisons fail and child props churn.', 'Store independent state separately or use selectors.'],
+  ['Over-memoization', 'Everything is wrapped in memo, useMemo, and useCallback.', 'The tree is harder to reason about and still has poor ownership.', 'Fix boundaries first, memoize expensive stable children second.'],
+  ['Inline objects causing unstable props', 'Child receives style or options objects created every render.', 'Memoized children still re-render.', 'Hoist stable objects or compute them with useMemo when needed.'],
+  ['Inline callbacks everywhere', 'Handlers close over broad parent state.', 'Stable children receive changing function identities.', 'Use local handlers, event payloads, or useCallback for expensive paths.'],
+  ['List items without isolation', 'Parent selection state re-renders every row.', 'Large lists feel slow under simple interactions.', 'Make rows memoized and pass stable primitive props.'],
+  ['Derived state duplication', 'Filtered rows are stored separately from source rows.', 'State falls out of sync and renders multiply.', 'Derive during render or memoize derived data from one source.'],
+  ['Provider hell', 'Many providers wrap the full app even when used by one route.', 'Scope and update behavior are hidden.', 'Place providers near the routes or widgets that need them.'],
+  ['Business logic inside UI components', 'Rendering code contains permission, pricing, and workflow rules.', 'Testing and changing UI both become expensive.', 'Extract domain rules into hooks or plain utilities.'],
+].map(([title, problem, hurts, better]) => ({
+  title,
+  problem,
+  symptoms: 'Slow interactions, unclear ownership, and surprising render cascades.',
+  hurts,
+  better,
+  code: `// Better pattern\nfunction ${title.replaceAll(' ', '')}Boundary() {\n  const model = useFocusedModel();\n  return <FocusedView model={model} />;\n}`,
+}));

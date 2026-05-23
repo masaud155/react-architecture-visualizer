@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    background:
+      radial-gradient(circle at top left, rgb(20 184 166 / 0.13), transparent 34rem),
+      radial-gradient(circle at top right, rgb(139 92 246 / 0.12), transparent 32rem),
+      hsl(228 26% 7%);
+  }
+
+  ::selection {
+    @apply bg-primary/30 text-foreground;
+  }
+}
+
+@layer components {
+  .panel {
+    @apply rounded-lg border border-white/10 bg-card/[0.82] shadow-panel backdrop-blur-xl;
+  }
+
+  .code-grid {
+    background-image:
+      linear-gradient(rgb(255 255 255 / 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(255 255 255 / 0.035) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  .react-flow__attribution {
+    @apply hidden;
+  }
+}
