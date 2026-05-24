@@ -15,6 +15,7 @@ React performance issues often come from architecture choices that are hard to s
 - Animated re-render heatmap with green correct renders and red wasted renders
 - Why Did This Render inspector
 - Render timeline for every simulated interaction
+- What If Studio for live architecture tuning and scenario save slots
 - Architecture score from 0 to 100
 - State Ownership Lab
 - Prop Flow Visualizer
@@ -23,6 +24,13 @@ React performance issues often come from architecture choices that are hard to s
 - List Rendering Lab
 - Architecture Anti-Patterns library
 - Real-World Dashboard Demo
+- Before vs After architecture diff
+- Simulated render cost and profiler flamegraph
+- Scenario Builder with realistic presets
+- Pro JSX Import powered by Babel parser
+- Advisor Suite for prop stability, context splitting, memo decisions, budgets, and responsibility maps
+- Markdown architecture report export
+- Guided learning missions
 - Beginner, Intermediate, and Senior Engineer explanation modes
 - Final architecture checklist
 - Responsive dark-mode developer SaaS interface
@@ -45,6 +53,7 @@ Screenshots are intentionally left as project placeholders:
 - lucide-react
 - React Router
 - React Flow via `@xyflow/react`
+- Babel parser
 - Zustand
 - Framer Motion
 - No TypeScript
@@ -94,12 +103,10 @@ src/
 
 ## Roadmap
 
-- Add saved scenario presets
-- Add import/export for custom graphs
-- Add Profiler-style flame chart view
-- Add more real-world app templates
+- Add saved scenario presets to local storage
+- Add graph export/import JSON
 - Add keyboard shortcuts for simulator controls
-- Add visual diff mode for architecture changes
+- Add route-level code splitting
 
 ## Contributing
 

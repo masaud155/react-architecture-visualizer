@@ -5,13 +5,21 @@ import {
   BookOpen,
   Boxes,
   CheckSquare,
+  ClipboardList,
+  Compass,
   Gauge,
   GitBranch,
+  GitPullRequest,
   Layers,
   LineChart,
   ListTree,
   Network,
+  Radar,
+  ScanLine,
+  SquareCode,
   Route,
+  Workflow,
+  SlidersHorizontal,
 } from 'lucide-react';
 
 export const navSections = [
@@ -20,8 +28,12 @@ export const navSections = [
     items: [
       { to: '/', label: 'Overview', icon: Gauge },
       { to: '/simulator', label: 'RenderFlow Simulator', icon: Network },
+      { to: '/what-if-studio', label: 'What If Studio', icon: SlidersHorizontal },
+      { to: '/before-after', label: 'Before vs After', icon: ScanLine },
       { to: '/performance-timeline', label: 'Performance Timeline', icon: Activity },
+      { to: '/profiler', label: 'Profiler Flamegraph', icon: Radar },
       { to: '/architecture-score', label: 'Architecture Score', icon: LineChart },
+      { to: '/export-report', label: 'Export Report', icon: ClipboardList },
     ],
   },
   {
@@ -33,11 +45,15 @@ export const navSections = [
       { to: '/memoization', label: 'Memoization', icon: Binary },
       { to: '/list-rendering', label: 'List Rendering', icon: ListTree },
       { to: '/dashboard-demo', label: 'Dashboard Demo', icon: BarChart3 },
+      { to: '/scenario-builder', label: 'Scenario Builder', icon: Workflow },
+      { to: '/jsx-import', label: 'JSX Import', icon: SquareCode },
     ],
   },
   {
     label: 'Reference',
     items: [
+      { to: '/advisor-suite', label: 'Advisor Suite', icon: Compass },
+      { to: '/learning-missions', label: 'Learning Missions', icon: GitPullRequest },
       { to: '/anti-patterns', label: 'Anti-Patterns', icon: Layers },
       { to: '/final-checklist', label: 'Final Checklist', icon: CheckSquare },
       { to: '/guide', label: 'How to Use', icon: BookOpen },

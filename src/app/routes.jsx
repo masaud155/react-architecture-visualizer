@@ -1,37 +1,64 @@
+/* eslint-disable react-refresh/only-export-components */
 import { createBrowserRouter } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
 import { AppLayout } from '../components/layout/AppLayout.jsx';
-import { Overview } from '../pages/Overview.jsx';
-import { RenderFlowSimulator } from '../pages/RenderFlowSimulator.jsx';
-import { StateOwnership } from '../pages/StateOwnership.jsx';
-import { PropFlow } from '../pages/PropFlow.jsx';
-import { ContextUpdate } from '../pages/ContextUpdate.jsx';
-import { Memoization } from '../pages/Memoization.jsx';
-import { ListRendering } from '../pages/ListRendering.jsx';
-import { AntiPatterns } from '../pages/AntiPatterns.jsx';
-import { DashboardDemoPage } from '../pages/DashboardDemoPage.jsx';
-import { PerformanceTimeline } from '../pages/PerformanceTimeline.jsx';
-import { ArchitectureScorePage } from '../pages/ArchitectureScorePage.jsx';
-import { FinalChecklist } from '../pages/FinalChecklist.jsx';
-import { Guide } from '../pages/Guide.jsx';
+
+const Overview = lazy(() => import('../pages/Overview.jsx').then((module) => ({ default: module.Overview })));
+const RenderFlowSimulator = lazy(() => import('../pages/RenderFlowSimulator.jsx').then((module) => ({ default: module.RenderFlowSimulator })));
+const StateOwnership = lazy(() => import('../pages/StateOwnership.jsx').then((module) => ({ default: module.StateOwnership })));
+const PropFlow = lazy(() => import('../pages/PropFlow.jsx').then((module) => ({ default: module.PropFlow })));
+const ContextUpdate = lazy(() => import('../pages/ContextUpdate.jsx').then((module) => ({ default: module.ContextUpdate })));
+const Memoization = lazy(() => import('../pages/Memoization.jsx').then((module) => ({ default: module.Memoization })));
+const ListRendering = lazy(() => import('../pages/ListRendering.jsx').then((module) => ({ default: module.ListRendering })));
+const AntiPatterns = lazy(() => import('../pages/AntiPatterns.jsx').then((module) => ({ default: module.AntiPatterns })));
+const DashboardDemoPage = lazy(() => import('../pages/DashboardDemoPage.jsx').then((module) => ({ default: module.DashboardDemoPage })));
+const PerformanceTimeline = lazy(() => import('../pages/PerformanceTimeline.jsx').then((module) => ({ default: module.PerformanceTimeline })));
+const ArchitectureScorePage = lazy(() => import('../pages/ArchitectureScorePage.jsx').then((module) => ({ default: module.ArchitectureScorePage })));
+const FinalChecklist = lazy(() => import('../pages/FinalChecklist.jsx').then((module) => ({ default: module.FinalChecklist })));
+const Guide = lazy(() => import('../pages/Guide.jsx').then((module) => ({ default: module.Guide })));
+const BeforeAfterDiff = lazy(() => import('../pages/BeforeAfterDiff.jsx').then((module) => ({ default: module.BeforeAfterDiff })));
+const ExportReport = lazy(() => import('../pages/ExportReport.jsx').then((module) => ({ default: module.ExportReport })));
+const ScenarioBuilder = lazy(() => import('../pages/ScenarioBuilder.jsx').then((module) => ({ default: module.ScenarioBuilder })));
+const JsxImport = lazy(() => import('../pages/JsxImport.jsx').then((module) => ({ default: module.JsxImport })));
+const ProfilerFlamegraph = lazy(() => import('../pages/ProfilerFlamegraph.jsx').then((module) => ({ default: module.ProfilerFlamegraph })));
+const AdvisorSuite = lazy(() => import('../pages/AdvisorSuite.jsx').then((module) => ({ default: module.AdvisorSuite })));
+const LearningMissions = lazy(() => import('../pages/LearningMissions.jsx').then((module) => ({ default: module.LearningMissions })));
+const WhatIfStudio = lazy(() => import('../pages/WhatIfStudio.jsx').then((module) => ({ default: module.WhatIfStudio })));
+
+function withSuspense(element) {
+  return (
+    <Suspense fallback={<div className="panel p-6 text-sm text-muted-foreground">Loading workspace...</div>}>
+      {element}
+    </Suspense>
+  );
+}
 
 export const router = createBrowserRouter([
   {
     path: '/',
     element: <AppLayout />,
     children: [
-      { index: true, element: <Overview /> },
-      { path: 'simulator', element: <RenderFlowSimulator /> },
-      { path: 'state-ownership', element: <StateOwnership /> },
-      { path: 'prop-flow', element: <PropFlow /> },
-      { path: 'context-update', element: <ContextUpdate /> },
-      { path: 'memoization', element: <Memoization /> },
-      { path: 'list-rendering', element: <ListRendering /> },
-      { path: 'anti-patterns', element: <AntiPatterns /> },
-      { path: 'dashboard-demo', element: <DashboardDemoPage /> },
-      { path: 'performance-timeline', element: <PerformanceTimeline /> },
-      { path: 'architecture-score', element: <ArchitectureScorePage /> },
-      { path: 'final-checklist', element: <FinalChecklist /> },
-      { path: 'guide', element: <Guide /> },
+      { index: true, element: withSuspense(<Overview />) },
+      { path: 'simulator', element: withSuspense(<RenderFlowSimulator />) },
+      { path: 'what-if-studio', element: withSuspense(<WhatIfStudio />) },
+      { path: 'scenario-builder', element: withSuspense(<ScenarioBuilder />) },
+      { path: 'jsx-import', element: withSuspense(<JsxImport />) },
+      { path: 'state-ownership', element: withSuspense(<StateOwnership />) },
+      { path: 'prop-flow', element: withSuspense(<PropFlow />) },
+      { path: 'context-update', element: withSuspense(<ContextUpdate />) },
+      { path: 'memoization', element: withSuspense(<Memoization />) },
+      { path: 'list-rendering', element: withSuspense(<ListRendering />) },
+      { path: 'anti-patterns', element: withSuspense(<AntiPatterns />) },
+      { path: 'dashboard-demo', element: withSuspense(<DashboardDemoPage />) },
+      { path: 'performance-timeline', element: withSuspense(<PerformanceTimeline />) },
+      { path: 'profiler', element: withSuspense(<ProfilerFlamegraph />) },
+      { path: 'architecture-score', element: withSuspense(<ArchitectureScorePage />) },
+      { path: 'advisor-suite', element: withSuspense(<AdvisorSuite />) },
+      { path: 'before-after', element: withSuspense(<BeforeAfterDiff />) },
+      { path: 'export-report', element: withSuspense(<ExportReport />) },
+      { path: 'learning-missions', element: withSuspense(<LearningMissions />) },
+      { path: 'final-checklist', element: withSuspense(<FinalChecklist />) },
+      { path: 'guide', element: withSuspense(<Guide />) },
     ],
   },
 ]);

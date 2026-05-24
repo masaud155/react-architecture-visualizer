@@ -11,6 +11,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@babel/parser": "latest",
     "@vitejs/plugin-react": "latest",
     "@xyflow/react": "latest",
     "class-variance-authority": "latest",
