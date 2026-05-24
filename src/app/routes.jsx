@@ -24,6 +24,7 @@ const ProfilerFlamegraph = lazy(() => import('../pages/ProfilerFlamegraph.jsx').
 const AdvisorSuite = lazy(() => import('../pages/AdvisorSuite.jsx').then((module) => ({ default: module.AdvisorSuite })));
 const LearningMissions = lazy(() => import('../pages/LearningMissions.jsx').then((module) => ({ default: module.LearningMissions })));
 const WhatIfStudio = lazy(() => import('../pages/WhatIfStudio.jsx').then((module) => ({ default: module.WhatIfStudio })));
+const ArchitectureWorkbench = lazy(() => import('../pages/ArchitectureWorkbench.jsx').then((module) => ({ default: module.ArchitectureWorkbench })));
 
 function withSuspense(element) {
   return (
@@ -40,6 +41,7 @@ export const router = createBrowserRouter([
     children: [
       { index: true, element: withSuspense(<Overview />) },
       { path: 'simulator', element: withSuspense(<RenderFlowSimulator />) },
+      { path: 'architecture-workbench', element: withSuspense(<ArchitectureWorkbench />) },
       { path: 'what-if-studio', element: withSuspense(<WhatIfStudio />) },
       { path: 'scenario-builder', element: withSuspense(<ScenarioBuilder />) },
       { path: 'jsx-import', element: withSuspense(<JsxImport />) },

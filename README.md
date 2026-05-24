@@ -11,6 +11,7 @@ React performance issues often come from architecture choices that are hard to s
 ## Features
 
 - Interactive React Flow component tree graph
+- Editable Architecture Workbench with refactor coach
 - Bad Architecture and Good Architecture modes
 - Animated re-render heatmap with green correct renders and red wasted renders
 - Why Did This Render inspector

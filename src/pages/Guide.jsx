@@ -1,4 +1,4 @@
-import { ArrowRight, CheckCircle2, ClipboardList, Compass, GitCompare, MousePointerClick, RotateCcw, SquareCode, SlidersHorizontal, Timer, Workflow } from 'lucide-react';
+import { ArrowRight, CheckCircle2, ClipboardList, Compass, GitCompare, MousePointer2, MousePointerClick, RotateCcw, SquareCode, SlidersHorizontal, Timer, Workflow } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Card, CardTitle } from '../components/ui/Card.jsx';
 import { Button } from '../components/ui/Button.jsx';
@@ -24,6 +24,10 @@ const steps = [
   {
     title: 'Tune What If Studio',
     text: 'Adjust state ownership, context scope, memoization, list size, and budgets to see projected render impact live.',
+  },
+  {
+    title: 'Edit the graph directly',
+    text: 'Use Architecture Workbench to add nodes, add dependency edges, toggle state owners, and get refactor coach guidance.',
   },
   {
     title: 'Export a report',
@@ -53,6 +57,7 @@ const steps = [
 
 const controls = [
   { icon: SlidersHorizontal, label: 'Architecture toggle', text: 'Changes graph structure, render behavior, timeline events, and score.' },
+  { icon: MousePointer2, label: 'Architecture Workbench', text: 'Edit the graph directly, select nodes, and use the refactor coach to decide what to change next.' },
   { icon: Workflow, label: 'What If Studio', text: 'Tune ownership, context scope, list pressure, memoization, and budgets with live scoring and save slots.' },
   { icon: MousePointerClick, label: 'Trigger Interaction', text: 'Runs the selected simulation and updates render counts.' },
   { icon: Timer, label: 'Render cost', text: 'Adds simulated milliseconds to show why wasted renders matter in larger screens.' },
@@ -111,6 +116,9 @@ export function Guide() {
           </Button>
           <Button variant="secondary" asChild>
             <Link to="/what-if-studio">Open What If Studio</Link>
+          </Button>
+          <Button variant="secondary" asChild>
+            <Link to="/architecture-workbench">Open Workbench</Link>
           </Button>
           <Button variant="secondary" asChild>
             <Link to="/advisor-suite">Open advisor suite</Link>
@@ -176,11 +184,12 @@ export function Guide() {
           <Link className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-primary/40 hover:text-primary" to="/prop-flow">2. Prop Flow</Link>
           <Link className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-primary/40 hover:text-primary" to="/context-update">3. Context Updates</Link>
           <Link className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-primary/40 hover:text-primary" to="/list-rendering">4. List Rendering</Link>
-          <Link className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-primary/40 hover:text-primary" to="/what-if-studio">5. What If Studio</Link>
-          <Link className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-primary/40 hover:text-primary" to="/before-after">6. Before vs After</Link>
-          <Link className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-primary/40 hover:text-primary" to="/export-report">7. Export Report</Link>
-          <Link className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-primary/40 hover:text-primary" to="/scenario-builder">8. Scenario Builder</Link>
-          <Link className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-primary/40 hover:text-primary" to="/advisor-suite">9. Advisor Suite</Link>
+          <Link className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-primary/40 hover:text-primary" to="/architecture-workbench">5. Architecture Workbench</Link>
+          <Link className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-primary/40 hover:text-primary" to="/what-if-studio">6. What If Studio</Link>
+          <Link className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-primary/40 hover:text-primary" to="/before-after">7. Before vs After</Link>
+          <Link className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-primary/40 hover:text-primary" to="/export-report">8. Export Report</Link>
+          <Link className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-primary/40 hover:text-primary" to="/scenario-builder">9. Scenario Builder</Link>
+          <Link className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-primary/40 hover:text-primary" to="/advisor-suite">10. Advisor Suite</Link>
         </div>
       </Card>
     </div>

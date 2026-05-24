@@ -20,6 +20,7 @@ import {
   Route,
   Workflow,
   SlidersHorizontal,
+  MousePointer2,
 } from 'lucide-react';
 
 export const navSections = [
@@ -28,6 +29,7 @@ export const navSections = [
     items: [
       { to: '/', label: 'Overview', icon: Gauge },
       { to: '/simulator', label: 'RenderFlow Simulator', icon: Network },
+      { to: '/architecture-workbench', label: 'Architecture Workbench', icon: MousePointer2 },
       { to: '/what-if-studio', label: 'What If Studio', icon: SlidersHorizontal },
       { to: '/before-after', label: 'Before vs After', icon: ScanLine },
       { to: '/performance-timeline', label: 'Performance Timeline', icon: Activity },
