@@ -21,6 +21,8 @@ import {
   Workflow,
   SlidersHorizontal,
   MousePointer2,
+  FolderSearch,
+  FolderTree,
 } from 'lucide-react';
 
 export const navSections = [
@@ -29,6 +31,8 @@ export const navSections = [
     items: [
       { to: '/', label: 'Overview', icon: Gauge },
       { to: '/simulator', label: 'RenderFlow Simulator', icon: Network },
+      { to: '/project-analyzer', label: 'Project Analyzer', icon: FolderSearch },
+      { to: '/folder-compare', label: 'Folder Compare', icon: FolderTree },
       { to: '/architecture-workbench', label: 'Architecture Workbench', icon: MousePointer2 },
       { to: '/what-if-studio', label: 'What If Studio', icon: SlidersHorizontal },
       { to: '/before-after', label: 'Before vs After', icon: ScanLine },

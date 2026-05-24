@@ -25,6 +25,8 @@ const AdvisorSuite = lazy(() => import('../pages/AdvisorSuite.jsx').then((module
 const LearningMissions = lazy(() => import('../pages/LearningMissions.jsx').then((module) => ({ default: module.LearningMissions })));
 const WhatIfStudio = lazy(() => import('../pages/WhatIfStudio.jsx').then((module) => ({ default: module.WhatIfStudio })));
 const ArchitectureWorkbench = lazy(() => import('../pages/ArchitectureWorkbench.jsx').then((module) => ({ default: module.ArchitectureWorkbench })));
+const ProjectAnalyzer = lazy(() => import('../pages/ProjectAnalyzer.jsx').then((module) => ({ default: module.ProjectAnalyzer })));
+const FolderCompare = lazy(() => import('../pages/FolderCompare.jsx').then((module) => ({ default: module.FolderCompare })));
 
 function withSuspense(element) {
   return (
@@ -42,6 +44,8 @@ export const router = createBrowserRouter([
       { index: true, element: withSuspense(<Overview />) },
       { path: 'simulator', element: withSuspense(<RenderFlowSimulator />) },
       { path: 'architecture-workbench', element: withSuspense(<ArchitectureWorkbench />) },
+      { path: 'project-analyzer', element: withSuspense(<ProjectAnalyzer />) },
+      { path: 'folder-compare', element: withSuspense(<FolderCompare />) },
       { path: 'what-if-studio', element: withSuspense(<WhatIfStudio />) },
       { path: 'scenario-builder', element: withSuspense(<ScenarioBuilder />) },
       { path: 'jsx-import', element: withSuspense(<JsxImport />) },

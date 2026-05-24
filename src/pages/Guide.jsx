@@ -1,4 +1,4 @@
-import { ArrowRight, CheckCircle2, ClipboardList, Compass, GitCompare, MousePointer2, MousePointerClick, RotateCcw, SquareCode, SlidersHorizontal, Timer, Workflow } from 'lucide-react';
+import { ArrowRight, CheckCircle2, ClipboardList, Compass, FolderSearch, FolderTree, GitCompare, MousePointer2, MousePointerClick, RotateCcw, SquareCode, SlidersHorizontal, Timer, Workflow } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Card, CardTitle } from '../components/ui/Card.jsx';
 import { Button } from '../components/ui/Button.jsx';
@@ -30,6 +30,14 @@ const steps = [
     text: 'Use Architecture Workbench to add nodes, add dependency edges, toggle state owners, and get refactor coach guidance.',
   },
   {
+    title: 'Analyze a real project',
+    text: 'Open Project Analyzer, import a React folder, and review structure score, architecture smells, large files, and improvement steps.',
+  },
+  {
+    title: 'Compare folder structures',
+    text: 'Use Folder Compare to edit the current tree beside a recommended scalable structure, then export JSON, Markdown, or terminal commands.',
+  },
+  {
     title: 'Export a report',
     text: 'Generate a Markdown architecture report you can paste into a PR, design review, or learning note.',
   },
@@ -57,6 +65,8 @@ const steps = [
 
 const controls = [
   { icon: SlidersHorizontal, label: 'Architecture toggle', text: 'Changes graph structure, render behavior, timeline events, and score.' },
+  { icon: FolderSearch, label: 'Project Analyzer', text: 'Import a local React project folder and get structure scoring, smells, and good-practice recommendations.' },
+  { icon: FolderTree, label: 'Folder Compare', text: 'Compare current and improved folder structures side by side with editing, diff highlighting, and exports.' },
   { icon: MousePointer2, label: 'Architecture Workbench', text: 'Edit the graph directly, select nodes, and use the refactor coach to decide what to change next.' },
   { icon: Workflow, label: 'What If Studio', text: 'Tune ownership, context scope, list pressure, memoization, and budgets with live scoring and save slots.' },
   { icon: MousePointerClick, label: 'Trigger Interaction', text: 'Runs the selected simulation and updates render counts.' },
@@ -92,6 +102,33 @@ const whatIfWorkflow = [
   },
 ];
 
+const workbenchWorkflow = [
+  {
+    label: 'Load a baseline',
+    text: 'Start from the bad or good dashboard preset so you can compare known architecture shapes before editing.',
+  },
+  {
+    label: 'Edit boundaries',
+    text: 'Add nodes, drag components into position, rename boundaries, and change component types.',
+  },
+  {
+    label: 'Mark behavior',
+    text: 'Toggle state owner and memoized badges, then add warning text for architecture smells you want to track.',
+  },
+  {
+    label: 'Add dependency edges',
+    text: 'Create hierarchy, prop, context, and state edges to model how updates move through the tree.',
+  },
+  {
+    label: 'Use Refactor Coach',
+    text: 'Select a node to get a diagnosis, guided refactor steps, and expected render improvement.',
+  },
+  {
+    label: 'Validate elsewhere',
+    text: 'Use What If Studio, Before vs After, and Export Report to turn the edited idea into measurable evidence.',
+  },
+];
+
 export function Guide() {
   return (
     <div className="space-y-5">
@@ -119,6 +156,12 @@ export function Guide() {
           </Button>
           <Button variant="secondary" asChild>
             <Link to="/architecture-workbench">Open Workbench</Link>
+          </Button>
+          <Button variant="secondary" asChild>
+            <Link to="/project-analyzer">Analyze project</Link>
+          </Button>
+          <Button variant="secondary" asChild>
+            <Link to="/folder-compare">Compare folders</Link>
           </Button>
           <Button variant="secondary" asChild>
             <Link to="/advisor-suite">Open advisor suite</Link>
@@ -160,6 +203,30 @@ export function Guide() {
         </div>
       </Card>
 
+      <Card>
+        <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+          <div>
+            <Badge tone="accent">Editable graph workflow</Badge>
+            <CardTitle className="mt-3">How to use Architecture Workbench</CardTitle>
+            <p className="mt-2 max-w-3xl text-sm leading-6 text-muted-foreground">
+              Use this page when you want to model a custom architecture visually. It is the most hands-on part of the app: edit the graph, select a boundary, and let Refactor Coach explain what to improve.
+            </p>
+          </div>
+          <Button variant="secondary" asChild>
+            <Link to="/architecture-workbench">Launch Workbench</Link>
+          </Button>
+        </div>
+        <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+          {workbenchWorkflow.map((item, index) => (
+            <div key={item.label} className="rounded-lg border border-white/10 bg-white/[0.035] p-4">
+              <span className="flex h-7 w-7 items-center justify-center rounded-md bg-accent/[0.16] text-xs font-semibold text-violet-100">{index + 1}</span>
+              <p className="mt-3 text-sm font-semibold text-slate-100">{item.label}</p>
+              <p className="mt-2 text-xs leading-5 text-muted-foreground">{item.text}</p>
+            </div>
+          ))}
+        </div>
+      </Card>
+
       <section className="grid gap-3 md:grid-cols-2">
         {steps.map((step, index) => (
           <Card key={step.title}>
@@ -184,12 +251,14 @@ export function Guide() {
           <Link className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-primary/40 hover:text-primary" to="/prop-flow">2. Prop Flow</Link>
           <Link className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-primary/40 hover:text-primary" to="/context-update">3. Context Updates</Link>
           <Link className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-primary/40 hover:text-primary" to="/list-rendering">4. List Rendering</Link>
-          <Link className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-primary/40 hover:text-primary" to="/architecture-workbench">5. Architecture Workbench</Link>
-          <Link className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-primary/40 hover:text-primary" to="/what-if-studio">6. What If Studio</Link>
-          <Link className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-primary/40 hover:text-primary" to="/before-after">7. Before vs After</Link>
-          <Link className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-primary/40 hover:text-primary" to="/export-report">8. Export Report</Link>
-          <Link className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-primary/40 hover:text-primary" to="/scenario-builder">9. Scenario Builder</Link>
-          <Link className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-primary/40 hover:text-primary" to="/advisor-suite">10. Advisor Suite</Link>
+          <Link className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-primary/40 hover:text-primary" to="/project-analyzer">5. Project Analyzer</Link>
+          <Link className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-primary/40 hover:text-primary" to="/folder-compare">6. Folder Compare</Link>
+          <Link className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-primary/40 hover:text-primary" to="/architecture-workbench">7. Architecture Workbench</Link>
+          <Link className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-primary/40 hover:text-primary" to="/what-if-studio">8. What If Studio</Link>
+          <Link className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-primary/40 hover:text-primary" to="/before-after">9. Before vs After</Link>
+          <Link className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-primary/40 hover:text-primary" to="/export-report">10. Export Report</Link>
+          <Link className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-primary/40 hover:text-primary" to="/scenario-builder">11. Scenario Builder</Link>
+          <Link className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-primary/40 hover:text-primary" to="/advisor-suite">12. Advisor Suite</Link>
         </div>
       </Card>
     </div>
