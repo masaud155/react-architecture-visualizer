@@ -27,6 +27,7 @@ const WhatIfStudio = lazy(() => import('../pages/WhatIfStudio.jsx').then((module
 const ArchitectureWorkbench = lazy(() => import('../pages/ArchitectureWorkbench.jsx').then((module) => ({ default: module.ArchitectureWorkbench })));
 const ProjectAnalyzer = lazy(() => import('../pages/ProjectAnalyzer.jsx').then((module) => ({ default: module.ProjectAnalyzer })));
 const FolderCompare = lazy(() => import('../pages/FolderCompare.jsx').then((module) => ({ default: module.FolderCompare })));
+const CodeRefactorStudio = lazy(() => import('../pages/CodeRefactorStudio.jsx').then((module) => ({ default: module.CodeRefactorStudio })));
 
 function withSuspense(element) {
   return (
@@ -46,6 +47,7 @@ export const router = createBrowserRouter([
       { path: 'architecture-workbench', element: withSuspense(<ArchitectureWorkbench />) },
       { path: 'project-analyzer', element: withSuspense(<ProjectAnalyzer />) },
       { path: 'folder-compare', element: withSuspense(<FolderCompare />) },
+      { path: 'code-refactor-studio', element: withSuspense(<CodeRefactorStudio />) },
       { path: 'what-if-studio', element: withSuspense(<WhatIfStudio />) },
       { path: 'scenario-builder', element: withSuspense(<ScenarioBuilder />) },
       { path: 'jsx-import', element: withSuspense(<JsxImport />) },
