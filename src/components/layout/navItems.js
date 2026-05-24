@@ -24,6 +24,7 @@ import {
   FolderSearch,
   FolderTree,
   Wand2,
+  History,
 } from 'lucide-react';
 
 export const navSections = [
@@ -35,6 +36,7 @@ export const navSections = [
       { to: '/project-analyzer', label: 'Project Analyzer', icon: FolderSearch },
       { to: '/folder-compare', label: 'Folder Compare', icon: FolderTree },
       { to: '/code-refactor-studio', label: 'Code Refactor Studio', icon: Wand2 },
+      { to: '/replay-debugger', label: 'Replay Debugger', icon: History },
       { to: '/architecture-workbench', label: 'Architecture Workbench', icon: MousePointer2 },
       { to: '/what-if-studio', label: 'What If Studio', icon: SlidersHorizontal },
       { to: '/before-after', label: 'Before vs After', icon: ScanLine },

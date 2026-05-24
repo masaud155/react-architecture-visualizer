@@ -1,4 +1,4 @@
-import { ArrowRight, CheckCircle2, ClipboardList, Compass, FolderSearch, FolderTree, GitCompare, MousePointer2, MousePointerClick, RotateCcw, SquareCode, SlidersHorizontal, Timer, Wand2, Workflow } from 'lucide-react';
+import { ArrowRight, CheckCircle2, ClipboardList, Compass, FolderSearch, FolderTree, GitCompare, History, MousePointer2, MousePointerClick, RotateCcw, SquareCode, SlidersHorizontal, Timer, Wand2, Workflow } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Card, CardTitle } from '../components/ui/Card.jsx';
 import { Button } from '../components/ui/Button.jsx';
@@ -42,6 +42,10 @@ const steps = [
     text: 'Paste a React component into Code Refactor Studio, choose refactor actions, and preview improved code side by side.',
   },
   {
+    title: 'Replay render behavior',
+    text: 'Use Replay Debugger to step through events, state updates, renders, wasted work, and accumulated cost over time.',
+  },
+  {
     title: 'Export a report',
     text: 'Generate a Markdown architecture report you can paste into a PR, design review, or learning note.',
   },
@@ -72,6 +76,7 @@ const controls = [
   { icon: FolderSearch, label: 'Project Analyzer', text: 'Import a local React project folder and get structure scoring, smells, and good-practice recommendations.' },
   { icon: FolderTree, label: 'Folder Compare', text: 'Compare current and improved folder structures side by side with editing, diff highlighting, and exports.' },
   { icon: Wand2, label: 'Code Refactor Studio', text: 'Analyze React component code, select refactor actions, preview improved code, and copy the result.' },
+  { icon: History, label: 'Replay Debugger', text: 'Play, pause, scrub, and export a step-by-step replay of bad vs good render cascades.' },
   { icon: MousePointer2, label: 'Architecture Workbench', text: 'Edit the graph directly, select nodes, and use the refactor coach to decide what to change next.' },
   { icon: Workflow, label: 'What If Studio', text: 'Tune ownership, context scope, list pressure, memoization, and budgets with live scoring and save slots.' },
   { icon: MousePointerClick, label: 'Trigger Interaction', text: 'Runs the selected simulation and updates render counts.' },
@@ -172,6 +177,9 @@ export function Guide() {
             <Link to="/code-refactor-studio">Refactor code</Link>
           </Button>
           <Button variant="secondary" asChild>
+            <Link to="/replay-debugger">Replay renders</Link>
+          </Button>
+          <Button variant="secondary" asChild>
             <Link to="/advisor-suite">Open advisor suite</Link>
           </Button>
         </div>
@@ -262,12 +270,13 @@ export function Guide() {
           <Link className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-primary/40 hover:text-primary" to="/project-analyzer">5. Project Analyzer</Link>
           <Link className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-primary/40 hover:text-primary" to="/folder-compare">6. Folder Compare</Link>
           <Link className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-primary/40 hover:text-primary" to="/code-refactor-studio">7. Code Refactor Studio</Link>
-          <Link className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-primary/40 hover:text-primary" to="/architecture-workbench">8. Architecture Workbench</Link>
-          <Link className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-primary/40 hover:text-primary" to="/what-if-studio">9. What If Studio</Link>
-          <Link className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-primary/40 hover:text-primary" to="/before-after">10. Before vs After</Link>
-          <Link className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-primary/40 hover:text-primary" to="/export-report">11. Export Report</Link>
-          <Link className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-primary/40 hover:text-primary" to="/scenario-builder">12. Scenario Builder</Link>
-          <Link className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-primary/40 hover:text-primary" to="/advisor-suite">13. Advisor Suite</Link>
+          <Link className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-primary/40 hover:text-primary" to="/replay-debugger">8. Replay Debugger</Link>
+          <Link className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-primary/40 hover:text-primary" to="/architecture-workbench">9. Architecture Workbench</Link>
+          <Link className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-primary/40 hover:text-primary" to="/what-if-studio">10. What If Studio</Link>
+          <Link className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-primary/40 hover:text-primary" to="/before-after">11. Before vs After</Link>
+          <Link className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-primary/40 hover:text-primary" to="/export-report">12. Export Report</Link>
+          <Link className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-primary/40 hover:text-primary" to="/scenario-builder">13. Scenario Builder</Link>
+          <Link className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-primary/40 hover:text-primary" to="/advisor-suite">14. Advisor Suite</Link>
         </div>
       </Card>
     </div>
