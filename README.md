@@ -16,6 +16,7 @@ React performance issues often come from architecture choices that are hard to s
 - Side-by-side Folder Structure Compare with editing, diffing, and exports
 - Live React Code Refactor Studio with side-by-side improved code preview
 - Architecture Replay & Time Travel Debugger
+- Advanced Review Hub with smell radar, saved scenarios, and PR review generator
 - Bad Architecture and Good Architecture modes
 - Animated re-render heatmap with green correct renders and red wasted renders
 - Why Did This Render inspector

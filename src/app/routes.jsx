@@ -29,6 +29,7 @@ const ProjectAnalyzer = lazy(() => import('../pages/ProjectAnalyzer.jsx').then((
 const FolderCompare = lazy(() => import('../pages/FolderCompare.jsx').then((module) => ({ default: module.FolderCompare })));
 const CodeRefactorStudio = lazy(() => import('../pages/CodeRefactorStudio.jsx').then((module) => ({ default: module.CodeRefactorStudio })));
 const ReplayDebugger = lazy(() => import('../pages/ReplayDebugger.jsx').then((module) => ({ default: module.ReplayDebugger })));
+const AdvancedReviewHub = lazy(() => import('../pages/AdvancedReviewHub.jsx').then((module) => ({ default: module.AdvancedReviewHub })));
 
 function withSuspense(element) {
   return (
@@ -50,6 +51,7 @@ export const router = createBrowserRouter([
       { path: 'folder-compare', element: withSuspense(<FolderCompare />) },
       { path: 'code-refactor-studio', element: withSuspense(<CodeRefactorStudio />) },
       { path: 'replay-debugger', element: withSuspense(<ReplayDebugger />) },
+      { path: 'advanced-review', element: withSuspense(<AdvancedReviewHub />) },
       { path: 'what-if-studio', element: withSuspense(<WhatIfStudio />) },
       { path: 'scenario-builder', element: withSuspense(<ScenarioBuilder />) },
       { path: 'jsx-import', element: withSuspense(<JsxImport />) },
